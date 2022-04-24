@@ -132,6 +132,7 @@ func getBuilder(targetOS, targetArch, vmType string) (builder, error) {
 		targets.Linux:   linux{},
 		targets.Fuchsia: fuchsia{},
 		targets.Akaros:  akaros{},
+		targets.KOS:  kos{},
 		targets.OpenBSD: openbsd{},
 		targets.NetBSD:  netbsd{},
 		targets.FreeBSD: freebsd{},
