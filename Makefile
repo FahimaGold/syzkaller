@@ -89,6 +89,11 @@ ifeq ("$(TARGETOS)", "fuchsia")
 	TARGETGOARCH := $(HOSTARCH)
 endif
 
+ifeq ("$(TARGETOS)", "kaspersky")
+	TARGETGOOS := $(HOSTOS)
+	TARGETGOARCH := $(HOSTARCH)
+endif
+
 ifeq ("$(TARGETOS)", "trusty")
 	TARGETGOOS := $(HOSTOS)
 	TARGETGOARCH := $(HOSTARCH)
@@ -223,6 +228,7 @@ extract: bin/syz-extract
 ifeq ($(TARGETOS),fuchsia)
 	$(MAKE) generate_fidl TARGETARCH=amd64
 	$(MAKE) generate_fidl TARGETARCH=arm64
+	
 else
 endif
 	bin/syz-extract -build -os=$(TARGETOS) -sourcedir=$(SOURCEDIR) $(FILES)
@@ -331,7 +337,7 @@ presubmit_arch_executor: descriptions
 	env TARGETOS=linux TARGETARCH=amd64 SYZ_CLANG=yes $(MAKE) executor
 	env TARGETOS=akaros TARGETARCH=amd64 $(MAKE) executor
 	env TARGETOS=fuchsia TARGETARCH=amd64 $(MAKE) executor
-	env TARGETOS=fuchsia TARGETARCH=arm64 $(MAKE) executor
+	env TARGETOS=kaspersky TARGETARCH=arm64 $(MAKE) executor
 	env TARGETOS=test TARGETARCH=64 $(MAKE) executor
 	env TARGETOS=test TARGETARCH=64_fork $(MAKE) executor
 	env TARGETOS=test TARGETARCH=32_shmem $(MAKE) executor
