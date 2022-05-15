@@ -121,6 +121,7 @@ const (
 	FreeBSD = "freebsd"
 	Darwin  = "darwin"
 	Fuchsia = "fuchsia"
+	Kaspersky = "kaspersky"
 	Linux   = "linux"
 	NetBSD  = "netbsd"
 	OpenBSD = "openbsd"
@@ -419,6 +420,17 @@ var List = map[string]map[string]*Target{
 			CFlags:           fuchsiaCFlags(ARM64, "aarch64"),
 		},
 	},
+
+	Kaspersky: {
+		ARM64: {
+			PtrSize:          8,
+			PageSize:         4 << 10,
+			LittleEndian:     true,
+			KernelHeaderArch: ARM64,
+			CCompiler:        sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/clang",
+			Objdump:          sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/llvm-objdump",
+		},
+	},
 	Windows: {
 		AMD64: {
 			PtrSize: 8,
@@ -521,6 +533,16 @@ var oses = map[string]osCommon{
 		HostFuzzer:             true,
 		ExecutorBin:            "syz-executor",
 		KernelObject:           "zircon.elf",
+	},
+
+	Kaspersky: {
+		BuildOS:                Linux,
+		SyscallNumbers:         false,
+		ExecutorUsesShmem:      false,
+		ExecutorUsesForkServer: false,
+		HostFuzzer:             true,
+		ExecutorBin:            "syz-executor",
+		KernelObject:           "kos-image",
 	},
 	Windows: {
 		SyscallNumbers:         false,
