@@ -256,6 +256,7 @@ ifeq ($(TARGETOS),fuchsia)
 else
 endif
 ifeq ($(TARGETOS),kaspersky)
+	$(MAKE) generate_kos TARGETARCH=amd64
 	$(MAKE) generate_kos TARGETARCH=arm64
 	
 else
@@ -372,7 +373,7 @@ presubmit_arch_executor: descriptions
 	env TARGETOS=linux TARGETARCH=amd64 SYZ_CLANG=yes $(MAKE) executor
 	env TARGETOS=akaros TARGETARCH=amd64 $(MAKE) executor
 	env TARGETOS=fuchsia TARGETARCH=amd64 $(MAKE) executor
-	env TARGETOS=kaspersky TARGETARCH=arm64 $(MAKE) executor
+	env TARGETOS=kaspersky TARGETARCH=amd64 $(MAKE) executor
 	env TARGETOS=test TARGETARCH=64 $(MAKE) executor
 	env TARGETOS=test TARGETARCH=64_fork $(MAKE) executor
 	env TARGETOS=test TARGETARCH=32_shmem $(MAKE) executor
