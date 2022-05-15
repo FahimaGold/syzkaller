@@ -144,6 +144,7 @@ const (
 )
 
 func Get(OS, arch string) *Target {
+	fmt.Print("EXEC >>>>>>>>>>>>>>>>>>>>")
 	return GetEx(OS, arch, useClang)
 }
 
