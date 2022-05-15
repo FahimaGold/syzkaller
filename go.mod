@@ -39,3 +39,5 @@ require (
 	gopkg.in/ini.v1 v1.61.0 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
 )
+
+replace github.com/google/syzkaller => ./sys/targets
