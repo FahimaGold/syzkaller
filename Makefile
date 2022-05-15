@@ -30,7 +30,7 @@ ENV := $(subst \n,$(newline),$(shell CI=$(CI)\
 	SYZ_CLANG=$(SYZ_CLANG) \
 	go run tools/syz-make/make.go))
 # Uncomment in case of emergency.
-$(info $(ENV))
+  $(info $(ENV))
 $(eval $(ENV))
 ifneq ("$(SYZERROR)", "")
 $(error $(SYZERROR))
