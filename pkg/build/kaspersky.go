@@ -29,7 +29,7 @@ const IMG_SRC = "/opt/KasperskyOS-Community-Edition-1.0.0.69/libexec/arm-kos/"
 func (ka kaspersky) build(params Params) (ImageDetails, error) {
 sysTarget := targets.Get(targets.Kaspersky, params.TargetArch)
 if sysTarget == nil {
-return ImageDetails{}, fmt.Errorf("unsupported Kasperskz arch %v", params.TargetArch)
+return ImageDetails{}, fmt.Errorf("unsupported Kaspersky arch %v", params.TargetArch)
 }
 arch := sysTarget.KernelHeaderArch
 kernelKOS := filepath.Join(params.KernelDir, "out", arch, "kos-image")

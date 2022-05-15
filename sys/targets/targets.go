@@ -149,6 +149,8 @@ func Get(OS, arch string) *Target {
 
 func GetEx(OS, arch string, clang bool) *Target {
 	target := List[OS][arch]
+	fmt.Print("LIST OS: ", List[OS] )
+	fmt.Print("LIST ARCH", List[arch])
 	if target == nil {
 		return nil
 	}
@@ -429,7 +431,6 @@ var List = map[string]map[string]*Target{
 			KernelHeaderArch: "x64",
 			CCompiler:        sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/clang",
 			Objdump:          sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/llvm-objdump",
-			CFlags:           fuchsiaCFlags("x64", "x86_64"),
 		},
 		ARM64: {
 			PtrSize:          8,
