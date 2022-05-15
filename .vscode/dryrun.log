@@ -1,30 +1,21 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
+Inside make.go mainLIST OS: map[amd64:0xc00027e000]LIST ARCHmap[]TARGET OS RETRIEVED darwinTARGET ARCH RETRIEVED amd64export BUILDOS=darwin
+export NATIVEBUILDOS=darwin
+export HOSTOS=darwin
+export HOSTARCH=amd64
+export TARGETOS=darwin
+export TARGETARCH=amd64
+export TARGETVMARCH=amd64
+export CC=clang
+export ADDCFLAGS=-m64 -I ${SOURCEDIR}/san -Wno-deprecated-declarations -O2 -pthread -Wall -Werror -Wparentheses -Wunused-const-variable -Wframe-larger-than=16384 -Wno-stringop-overflow -Wno-array-bounds -Wno-format-overflow -lc++
+export NCORES=8
+export EXE=
+export NATIVEBUILDOS=darwin
+export NO_CROSS_COMPILER=SOURCEDIR is not set
+
+ 
 make: Entering directory `/Users/mac/syzkaller/syzkaller'
-go list -f '{{.Stale}}' ./sys/syz-sysgen | grep -q false || go install ./sys/syz-sysgen
-/Library/Developer/CommandLineTools/usr/bin/make .descriptions
- 
-make[1]: `.descriptions' is up to date.
- 
-GOOS=darwin GOARCH=amd64 go build "-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=a27c1543501a9112ffc202443e7693525252b535+ -X 'github.com/google/syzkaller/prog.gitRevisionDate=20220509-221820'" -o ./bin/syz-manager github.com/google/syzkaller/syz-manager
-GOOS=darwin GOARCH=amd64 go build "-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=a27c1543501a9112ffc202443e7693525252b535+ -X 'github.com/google/syzkaller/prog.gitRevisionDate=20220509-221820'" -o ./bin/syz-runtest github.com/google/syzkaller/tools/syz-runtest
-GOOS=darwin GOARCH=amd64 go build "-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=a27c1543501a9112ffc202443e7693525252b535+ -X 'github.com/google/syzkaller/prog.gitRevisionDate=20220509-221820'" -o ./bin/syz-repro github.com/google/syzkaller/tools/syz-repro
-GOOS=darwin GOARCH=amd64 go build "-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=a27c1543501a9112ffc202443e7693525252b535+ -X 'github.com/google/syzkaller/prog.gitRevisionDate=20220509-221820'" -o ./bin/syz-mutate github.com/google/syzkaller/tools/syz-mutate
- 
-GOOS=darwin GOARCH=amd64 go build "-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=a27c1543501a9112ffc202443e7693525252b535+ -X 'github.com/google/syzkaller/prog.gitRevisionDate=20220509-221820'" -o ./bin/syz-prog2c github.com/google/syzkaller/tools/syz-prog2c
-GOOS=darwin GOARCH=amd64 go build "-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=a27c1543501a9112ffc202443e7693525252b535+ -X 'github.com/google/syzkaller/prog.gitRevisionDate=20220509-221820'" -o ./bin/syz-db github.com/google/syzkaller/tools/syz-db
-GOOS=darwin GOARCH=amd64 go build "-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=a27c1543501a9112ffc202443e7693525252b535+ -X 'github.com/google/syzkaller/prog.gitRevisionDate=20220509-221820'" -o ./bin/syz-upgrade github.com/google/syzkaller/tools/syz-upgrade
-GOOS=darwin GOARCH=amd64 go build "-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=a27c1543501a9112ffc202443e7693525252b535+ -X 'github.com/google/syzkaller/prog.gitRevisionDate=20220509-221820'" "-tags=syz_target syz_os_darwin syz_arch_amd64 " -o ./bin/darwin_amd64/syz-fuzzer github.com/google/syzkaller/syz-fuzzer
-GOOS=darwin GOARCH=amd64 go build "-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=a27c1543501a9112ffc202443e7693525252b535+ -X 'github.com/google/syzkaller/prog.gitRevisionDate=20220509-221820'" "-tags=syz_target syz_os_darwin syz_arch_amd64 " -o ./bin/darwin_amd64/syz-execprog github.com/google/syzkaller/tools/syz-execprog
-GOOS=darwin GOARCH=amd64 go build "-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=a27c1543501a9112ffc202443e7693525252b535+ -X 'github.com/google/syzkaller/prog.gitRevisionDate=20220509-221820'" "-tags=syz_target syz_os_darwin syz_arch_amd64 " -o ./bin/darwin_amd64/syz-stress github.com/google/syzkaller/tools/syz-stress
-************************************************************************************
-Executor will not be built
-Native cross-compiler is missing/broken:
-SOURCEDIR is not set
-************************************************************************************
-************************************************************************************
-Executor will not be built
-Native cross-compiler is missing/broken:
-SOURCEDIR is not set
-************************************************************************************
 make: Leaving directory `/Users/mac/syzkaller/syzkaller'
  
+Makefile:34: *** target pattern contains no `%'.  Stop.
+
