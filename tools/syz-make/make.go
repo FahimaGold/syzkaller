@@ -33,14 +33,19 @@ type Var struct {
 }
 
 func impl() ([]Var, error) {
+	fmt.Print("os.Getenv(\"TARGETOS\") = \n", os.Getenv("TARGETOS"))
 	hostOS := or(os.Getenv("HOSTOS"), runtime.GOOS)
 	hostArch := or(os.Getenv("HOSTARCH"), runtime.GOARCH)
 	targetOS := or(os.Getenv("TARGETOS"), hostOS)
+
 	targetArch := or(os.Getenv("TARGETARCH"), hostArch)
 	targetVMArch := or(os.Getenv("TARGETVMARCH"), targetArch)
+
+	fmt.Print("TARGET OS RETRIEVED\n", targetOS)
+	fmt.Print("TARGET ARCH RETRIEVED\n", targetArch)
 	target := targets.Get(targetOS, targetArch)
-	fmt.Print("TARGET OS RETRIEVED ", targetOS)
-	fmt.Print("TARGET ARCH RETRIEVED ", targetArch)
+	fmt.Print("TARGET MOH \n", target)
+
 	if target == nil {
 		return nil, fmt.Errorf("unknown target %v/%v", targetOS, targetArch)
 	}

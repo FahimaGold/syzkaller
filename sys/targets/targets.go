@@ -148,6 +148,8 @@ func Get(OS, arch string) *Target {
 }
 
 func GetEx(OS, arch string, clang bool) *Target {
+	fmt.Print("LIST OS: ", OS )
+	fmt.Print("LIST ARCH", arch)
 	target := List[OS][arch]
 	fmt.Print("TARGETOSSS", target )
 	fmt.Print("LIST OS: ", List[OS] )
