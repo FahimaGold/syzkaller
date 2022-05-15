@@ -47,6 +47,7 @@ func impl() ([]Var, error) {
 	fmt.Print("TARGET MOH \n", target)
 
 	if target == nil {
+		fmt.Print(">>>>>>>>>>>>>>>>>>> ///// >>>>>>>>>>>>>>>>>")
 		return nil, fmt.Errorf("unknown target %v/%v", targetOS, targetArch)
 	}
 	

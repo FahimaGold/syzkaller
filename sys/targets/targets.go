@@ -145,6 +145,8 @@ const (
 )
 
 func Get(OS, arch string) *Target {
+	log.Debug("Useful debugging information.")
+    log.Info("Something noteworthy happened!")
 	fmt.Print("EXEC >>>>>>>>>>>>>>>>>>>>")
 	log.Println("Hello world! >>>>>>>>>>>>>>>>>>>>")
 	return GetEx(OS, arch, useClang)
