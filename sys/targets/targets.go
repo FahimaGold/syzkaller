@@ -422,6 +422,15 @@ var List = map[string]map[string]*Target{
 	},
 
 	Kaspersky: {
+		AMD64: {
+			PtrSize:          8,
+			PageSize:         4 << 10,
+			LittleEndian:     true,
+			KernelHeaderArch: "x64",
+			CCompiler:        sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/clang",
+			Objdump:          sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/llvm-objdump",
+			CFlags:           fuchsiaCFlags("x64", "x86_64"),
+		},
 		ARM64: {
 			PtrSize:          8,
 			PageSize:         4 << 10,
@@ -429,17 +438,8 @@ var List = map[string]map[string]*Target{
 			KernelHeaderArch: ARM64,
 			CCompiler:        sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/clang",
 			Objdump:          sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/llvm-objdump",
+			CFlags:           fuchsiaCFlags(ARM64, "aarch64"),
 		},
-		{
-			AMD64: {
-				PtrSize:          8,
-				PageSize:         4 << 10,
-				LittleEndian:     true,
-				KernelHeaderArch: "x64",
-				CCompiler:        sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/clang",
-				Objdump:          sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/llvm-objdump",
-				
-			},
 	},
 	Windows: {
 		AMD64: {
