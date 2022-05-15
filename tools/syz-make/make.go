@@ -44,6 +44,7 @@ func impl() ([]Var, error) {
 	if target == nil {
 		return nil, fmt.Errorf("unknown target %v/%v", targetOS, targetArch)
 	}
+	
 	parallelism := runtime.NumCPU()
 	if os.Getenv("CI") != "" {
 		// Github actions VMs have 2 vCPUs (Standard_DS2_v2 class). So we don't get lots of speed up
