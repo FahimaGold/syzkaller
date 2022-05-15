@@ -430,6 +430,16 @@ var List = map[string]map[string]*Target{
 			CCompiler:        sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/clang",
 			Objdump:          sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/llvm-objdump",
 		},
+		{
+			AMD64: {
+				PtrSize:          8,
+				PageSize:         4 << 10,
+				LittleEndian:     true,
+				KernelHeaderArch: "x64",
+				CCompiler:        sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/clang",
+				Objdump:          sourceDirVar + "/prebuilt/third_party/clang/linux-x64/bin/llvm-objdump",
+				
+			},
 	},
 	Windows: {
 		AMD64: {
