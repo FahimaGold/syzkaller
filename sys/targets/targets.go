@@ -12,6 +12,7 @@ import (
 	"strings"
 	"sync"
 	"time"
+	"log"
 )
 
 type Target struct {
@@ -145,6 +146,7 @@ const (
 
 func Get(OS, arch string) *Target {
 	fmt.Print("EXEC >>>>>>>>>>>>>>>>>>>>")
+	log.Println("Hello world! >>>>>>>>>>>>>>>>>>>>")
 	return GetEx(OS, arch, useClang)
 }
 
