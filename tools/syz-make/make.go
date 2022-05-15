@@ -16,6 +16,7 @@ import (
 )
 
 func main() {
+	fmt.Print("Inside make.go main")
 	vars, err := impl()
 	if err != nil {
 		fmt.Printf("export SYZERROR=%v\n", err)
@@ -38,6 +39,8 @@ func impl() ([]Var, error) {
 	targetArch := or(os.Getenv("TARGETARCH"), hostArch)
 	targetVMArch := or(os.Getenv("TARGETVMARCH"), targetArch)
 	target := targets.Get(targetOS, targetArch)
+	fmt.Print("TARGET OS RETRIEVED ", targetOS)
+	fmt.Print("TARGET ARCH RETRIEVED ", targetArch)
 	if target == nil {
 		return nil, fmt.Errorf("unknown target %v/%v", targetOS, targetArch)
 	}
