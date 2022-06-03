@@ -241,15 +241,20 @@ var archConfigs = map[string]*archConfig{
 		RngDev:   "virtio-rng-pci",
 	},
 	"kos/arm64": {
-		Qemu:      "qemu-system-arm", // qemu binary comming with kos toolchain
-		QemuArgs:  "-machine vexpress-a15 -nographic -monitor none -serial stdio -serial",
-		TargetDir: "/tmp",
-		NetDev:    "e1000",
-		RngDev:    "virtio-rng-pci",
+		Qemu:                   "/opt/KasperskyOS-Community-Edition-1.0.1.4/toolchain/bin/qemu-system-arm", // qemu binary comming with kos toolchain
+		QemuArgs:               "-machine vexpress-a15 -cpu max",
+		NetDev:                 "virtio-net-device",
+		RngDev:                 "virtio-rng-device",
+		UseNewQemuImageOptions: true,
+		// TargetDir:              "/tmp",
+		CmdLine: []string{
+			"root=/dev/vda",
+			"console=ttyAMA0",
+		},
 	},
 }
 
-//  tcp::12345,server,nowait -s -S -kernel /home/behouba/kos-examples/gpio_input/build/einit/kos-qemu-image
+//  /opt/KasperskyOS-Community-Edition-1.0.1.4/toolchain/bin/qemu-system-arm -m 2048 -machine vexpress-a15 -nographic -monitor none -serial stdio -kernel /home/behouba/kos-examples/hello/build/einit/kos-qemu-image
 
 func ctor(env *vmimpl.Env) (vmimpl.Pool, error) {
 	archConfig := archConfigs[env.OS+"/"+env.Arch]
