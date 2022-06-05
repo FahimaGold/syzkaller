@@ -241,11 +241,15 @@ var archConfigs = map[string]*archConfig{
 		RngDev:   "virtio-rng-pci",
 	},
 	"kos/arm64": {
-		Qemu:      "qemu-system-arm", // qemu binary comming with kos toolchain
-		QemuArgs:  "-machine vexpress-a15 -nographic -monitor none -serial stdio -serial",
-		TargetDir: "/tmp",
-		NetDev:    "e1000",
-		RngDev:    "virtio-rng-pci",
+		Qemu:                   "qemu-system-arm", // Or qemu binary coming with kos toolchain.
+		QemuArgs:               "-machine vexpress-a15 -cpu max",
+		NetDev:                 "virtio-net-device",
+		RngDev:                 "virtio-rng-device",
+		UseNewQemuImageOptions: true,
+		CmdLine: []string{
+			"root=/dev/vda",
+			"console=ttyAMA0",
+		},
 	},
 }
 

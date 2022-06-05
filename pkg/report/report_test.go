@@ -325,7 +325,7 @@ func testGuiltyFile(t *testing.T, reporter *Reporter, fn string) {
 
 func forEachFile(t *testing.T, dir string, fn func(t *testing.T, reporter *Reporter, fn string)) {
 	for os := range ctors {
-		if os == targets.Windows {
+		if os == targets.Windows || os == targets.KOS {
 			continue // not implemented
 		}
 		cfg := &mgrconfig.Config{
