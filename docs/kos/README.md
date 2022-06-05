@@ -5,7 +5,7 @@ Kaspersky OS Community Edition is available [here](https://os.kaspersky.com/down
 
 KasperskyOS Community Edition is distributed as a DEB package that you will need to install (follow the instructions on the [Getting started](https://support.kaspersky.com/help/KCE/1.0/en-US/getting_started.htm) page).
 
-In the instructions below, the $VAR notation (e.g. $GCC, $KERNEL, etc.) is used to denote paths to directories.
+In the instructions below, the $VAR notation is used to denote paths to directories:
 
 - $IMAGE: Kaspersky OS kernel image directory
 - $KOSPATH: Installation path of Kaspersky OS (/opt/KasperskyOS-Community-Edition-{version})
