@@ -1,7 +1,7 @@
 # Kaspersky OS support
 
 
-Kaspersky OS Community Edition is available [here](https://os.kaspersky.com/download-community-edition/). 
+Kaspersky OS Community Edition is available [here](https://os.kaspersky.com/download-community-edition/).
 
 KasperskyOS Community Edition is distributed as a DEB package that you will need to install (follow the instructions on the [Getting started](https://support.kaspersky.com/help/KCE/1.0/en-US/getting_started.htm) page).
 
@@ -28,7 +28,7 @@ $ cp $SYZKALLER/executor/kos/* .
 
 ### 3. Build the einit entity
 
-Generate the code of the Einit entity in C 
+Generate the code of the Einit entity in C
 
 ```bash
 $ einit -I $KOSPATH/sysroot-arm-kos/include \

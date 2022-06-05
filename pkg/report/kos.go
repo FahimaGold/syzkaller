@@ -7,10 +7,11 @@ import "path/filepath"
 
 type kos struct {
 	*config
+	obj string
 }
 
 func ctorKOS(cfg *config) (reporterImpl, []string, error) {
-	ctx := &fuchsia{
+	ctx := &kos{
 		config: cfg,
 	}
 	if ctx.kernelObj != "" {
@@ -30,7 +31,6 @@ func (k *kos) ContainsCrash(output []byte) bool {
 func (k *kos) Parse(output []byte) *Report {
 	// TODO: imeplement kos kernel console output parsing
 	return nil
-
 }
 
 func (k *kos) Symbolize(rep *Report) error {
