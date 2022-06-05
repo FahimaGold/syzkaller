@@ -11,5 +11,5 @@ import (
 )
 
 func InitTarget(target *prog.Target) {
-	target.MakeDataMmap = targets.MakeSyzMmap(target)
+	target.MakeDataMmap = targets.MakePosixMmap(target, true, true)
 }
