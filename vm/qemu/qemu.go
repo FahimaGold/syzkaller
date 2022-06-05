@@ -246,13 +246,14 @@ var archConfigs = map[string]*archConfig{
 		NetDev:                 "virtio-net-device",
 		RngDev:                 "virtio-rng-device",
 		UseNewQemuImageOptions: true,
-		// TargetDir:              "/tmp",
 		CmdLine: []string{
 			"root=/dev/vda",
 			"console=ttyAMA0",
 		},
 	},
 }
+
+//  tcp::12345,server,nowait -s -S -kernel /home/behouba/kos-examples/gpio_input/build/einit/kos-qemu-image
 
 func ctor(env *vmimpl.Env) (vmimpl.Pool, error) {
 	archConfig := archConfigs[env.OS+"/"+env.Arch]
