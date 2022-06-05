@@ -34,6 +34,6 @@ func (k *kos) Parse(output []byte) *Report {
 }
 
 func (k *kos) Symbolize(rep *Report) error {
-	// TODO: Implementation
+	// TODO
 	return nil
 }
